@@ -3,7 +3,7 @@
 *n. the amniotic tranquility of being indoors during a thunderstorm* —
 [The Dictionary of Obscure Sorrows](https://www.dictionaryofobscuresorrows.com)
 
-Chrysalism is a lightweight menu bar utility that simulates rain behind your icons and windows.
+Chrysalism is a lightweight menubar utility that simulates rain on your desktop.
 
 Created because of the unstable leadership situation surrounding [lo-rain](https://lo-rain.com).
 
