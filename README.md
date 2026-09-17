@@ -32,6 +32,20 @@ and then to install:
 make install      # builds Chrysalism.app and copies it to ~/Applications
 ```
 
+## Releasing
+
+To produce the artifact for a GitHub release page:
+
+```sh
+make release      # builds Chrysalism.app and zips it to Chrysalism-macOS.zip
+```
+
+To generate the app icon:
+
+```sh
+make icon
+```
+
 ## Menu
 
 Click the raindrop in your menu bar:
