@@ -7,6 +7,12 @@ Chrysalism is a lightweight menu bar utility that simulates rain behind your ico
 
 Created because of the unstable leadership situation surrounding [lo-rain](https://lo-rain.com).
 
+
+
+https://github.com/user-attachments/assets/ca923676-7ef3-4a92-8613-45fce81e53be
+
+
+
 ## Requirements
 
 - macOS 13 or later
