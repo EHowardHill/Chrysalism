@@ -1,8 +1,11 @@
-APP_NAME   := Chrysalism
-BUNDLE     := $(APP_NAME).app
-BINARY     := .build/release/$(APP_NAME)
+APP_NAME    := Chrysalism
+BUNDLE      := $(APP_NAME).app
+BINARY      := .build/release/$(APP_NAME)
 INSTALL_DIR := $(HOME)/Applications
 RELEASE_ZIP := $(APP_NAME)-macOS.zip
+
+# Default to ad-hoc signing (-) if SIGNING_IDENTITY is not set in the environment
+SIGNING_IDENTITY ?= -
 
 .PHONY: all build app icon run debug install release clean
 
@@ -25,7 +28,8 @@ app: build
 	cp "$(BINARY)" "$(BUNDLE)/Contents/MacOS/$(APP_NAME)"
 	cp Info.plist "$(BUNDLE)/Contents/Info.plist"
 	cp BuildResources/AppIcon.icns "$(BUNDLE)/Contents/Resources/AppIcon.icns"
-	codesign --force --sign - "$(BUNDLE)" 2>/dev/null || true
+	# Sign with your developer identity, enable hardened runtime, and apply a timestamp
+	codesign --force --options runtime --timestamp --sign "$(SIGNING_IDENTITY)" "$(BUNDLE)"
 
 run: app
 	open "$(BUNDLE)"
@@ -37,8 +41,7 @@ install: app
 	rm -rf "$(INSTALL_DIR)/$(BUNDLE)"
 	cp -R "$(BUNDLE)" "$(INSTALL_DIR)/"
 
-# Release artifact for the GitHub release page: a zipped, ad-hoc signed app
-# bundle, excluding anything the Finder would pollute it with.
+# Release artifact for the GitHub release page: a zipped, signed app bundle
 release: app
 	rm -f "$(RELEASE_ZIP)"
 	zip -r --symlinks "$(RELEASE_ZIP)" "$(BUNDLE)" -x "*.DS_Store"
