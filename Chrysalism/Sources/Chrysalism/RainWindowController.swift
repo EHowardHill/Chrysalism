@@ -80,7 +80,9 @@ final class RainWindowController {
     }
 
     deinit {
-        close()
+        MainActor.assumeIsolated {
+            close()
+        }
     }
 
     func close() {

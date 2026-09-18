@@ -1,6 +1,22 @@
 import AppKit
 
+@main
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+    @MainActor
+    static func main() {
+        let app = NSApplication.shared
+        app.setActivationPolicy(.accessory)
+        let delegate = AppDelegate()
+        retainedDelegate = delegate
+        app.delegate = delegate
+        app.run()
+    }
+
+    /// NSApplication.delegate is weak, and this class is created inside
+    /// main(); the static keeps the delegate alive for the process lifetime
+    /// the way main.swift's top-level constant used to.
+    @MainActor private static var retainedDelegate: AppDelegate?
+
     private var statusItem: NSStatusItem?
     private let screenManager = ScreenManager()
 

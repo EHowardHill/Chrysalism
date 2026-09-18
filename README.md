@@ -16,41 +16,7 @@ https://github.com/user-attachments/assets/ca923676-7ef3-4a92-8613-45fce81e53be
 ## Requirements
 
 - macOS 13 or later
-- Xcode command line tools (to build)
-
-## Build & run
-
-```sh
-make run        # builds Chrysalism.app and opens it
-```
-
-or manually:
-
-```sh
-swift build -c release
-make app
-open Chrysalism.app
-```
-
-and then to install:
-
-```sh
-make install      # builds Chrysalism.app and copies it to ~/Applications
-```
-
-## Releasing
-
-To produce the artifact for a GitHub release page:
-
-```sh
-make release      # builds Chrysalism.app and zips it to Chrysalism-macOS.zip
-```
-
-To generate the app icon:
-
-```sh
-make icon
-```
+- Xcode
 
 ## Menu
 

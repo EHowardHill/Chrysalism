@@ -4,7 +4,8 @@ import CoreGraphics
 // White raindrop on black, macOS "rounded-square" style.
 // The raindrop is the exact SF Symbol ("drop.fill") that Chrysalism uses in
 // its menu bar item, rendered white and composited over a black squircle.
-// Regenerate via `make icon`.
+// Regenerate with:
+//   swift Chrysalism/Scripts/mkicon.swift Chrysalism/Assets.xcassets/AppIcon.appiconset
 
 /// Renders the SF Symbol black-on-transparent, then tints it white with a
 /// source-atop fill — the standard AppKit tint recipe — and returns the
